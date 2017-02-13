@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 # Live News
-Your app description, here.
+live news aggregator using React and Rails
