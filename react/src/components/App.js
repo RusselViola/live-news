@@ -10,7 +10,7 @@ class App extends Component {
       articleArray: [],
       sourceArray: [],
       categories: [],
-      sourceKey: ''
+      sourceKey: ""
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -39,31 +39,22 @@ class App extends Component {
       data: {sourceTitle},
       success: function(data) {
         this.setState({ sourceKey: sourceTitle })
-        this.setState({ articleArray:data });
+        this.setState({ articleArray: data });
       }.bind(this)
     })
   }
 
   render() {
-    let articles = this.state.articleArray.map(article => {
-      return(
-        <Article
-          title={article.title}
-          author={article.author}
-          description={article.description}
-          url={article.url}
-          urlToImage={article.urlToImage}
-          publishedAt={article.publishedAt}
-        />
-      )
-    })
+    let articles = <Article
+      articleArray={this.state.articleArray}
+    />
     return (
       <div>
         <DropdownBar
           categories={this.state.categories}
           sourceArray={this.state.sourceArray}
           handleClick={this.handleClick}
-        />
+        /><br />
         {articles}
       </div>
     )
