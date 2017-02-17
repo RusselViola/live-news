@@ -1,4 +1,5 @@
 class Api::ArticlesController < ApiController
+  #business, entertainment, gaming, general, music, science and nature, sports, tech
 
   def index
     @sources = Source.all
