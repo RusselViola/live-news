@@ -6,14 +6,14 @@ export default class ArticleThumbnails extends Component {
     super(props);
   }
 
-  render() {
+  render(){
     let articles = this.props.articleArray.map(article => {
       return (
         <Thumbnail>
           <h3>{article.title}</h3>
           <p>{article.description}</p>
-          <p>{article.author}</p>
-          <p><a href={article.url}>Source</a></p>
+          <p>Author: {article.author}</p>
+          <p><a href={article.url} target="_blank">Source</a></p>
         </Thumbnail>
       )
     })
@@ -23,4 +23,5 @@ export default class ArticleThumbnails extends Component {
       </div>
     )
   }
+
 }
