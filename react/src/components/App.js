@@ -12,6 +12,7 @@ export default class App extends Component {
       articleArray: [],
       sourceArray: [],
       categories: [],
+      currentSource: "",
       sourceKey: ""
     };
     this.handleClick = this.handleClick.bind(this);
@@ -40,6 +41,11 @@ export default class App extends Component {
       url: 'api/articles',
       data: {sourceTitle},
       success: function(data) {
+        this.state.sourceArray.map( s => {
+          if (s.apiKey == sourceTitle) {
+            this.setState({ currentSource: s })
+          }
+        })
         this.setState({ sourceKey: sourceTitle })
         this.setState({ articleArray: data });
       }.bind(this)
@@ -49,7 +55,10 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <PageHeader><center>DATA FEED NEWS</center></PageHeader><br />
+        <PageHeader>
+          <center>API-Live: News Feed</center><br />
+          <center><img src={this.state.currentSource.logoUrl}/></center>
+        </PageHeader><br />
         <DropdownBar
           categories={this.state.categories}
           sourceArray={this.state.sourceArray}
@@ -67,6 +76,7 @@ export default class App extends Component {
             />
           </Tab>
         </Tabs>
+        <div dangerouslySetInnerHTML={this.createMarkup} />
         Powered By: <a href="https://newsapi.org">News API</a>
       </div>
     )
