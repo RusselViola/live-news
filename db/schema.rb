@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216192534) do
+ActiveRecord::Schema.define(version: 20170217215407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170216192534) do
     t.string "description", null: false
     t.string "category",    null: false
     t.string "logoUrl",     null: false
+    t.string "url",         null: false
   end
 
 end
