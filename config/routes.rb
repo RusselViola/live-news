@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   namespace :api do
-    resources :articles
+    resources :articles, only: [:index, :create]
+    resources :sources, only: [:index]
   end
 
 end
