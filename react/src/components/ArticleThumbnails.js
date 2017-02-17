@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 
-class ArticleThumbnails extends Component {
+export default class ArticleThumbnails extends Component {
   constructor(props){
     super(props);
   }
@@ -12,11 +12,8 @@ class ArticleThumbnails extends Component {
         <Thumbnail>
           <h3>{article.title}</h3>
           <p>{article.description}</p>
-          <p>
-            {article.author}
-            <br />
-            <a href={article.url}>Source</a>
-          </p>
+          <p>{article.author}</p>
+          <p><a href={article.url}>Source</a></p>
         </Thumbnail>
       )
     })
@@ -27,5 +24,3 @@ class ArticleThumbnails extends Component {
     )
   }
 }
-
-export default ArticleThumbnails;
