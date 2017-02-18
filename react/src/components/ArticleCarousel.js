@@ -1,11 +1,14 @@
 import React from 'react';
-import { Carousel, Image } from 'react-bootstrap';
+import { Carousel, Grid } from 'react-bootstrap';
 
 const ArticleCarousel = props => {
   let articles = props.articleArray.map(article => {
-    return (
+    if (article.urlToImage == null){
+      article.urlToImage = props.currentSourceUrl;
+    }
+    return(
       <Carousel.Item>
-        <Image src={article.urlToImage} responsive />
+        <img src={article.urlToImage} width={900} height={600} />
         <Carousel.Caption>
           <a href={article.url} target="_blank"><h3>{article.title}</h3></a>
           <p>{article.description}</p>
@@ -13,10 +16,13 @@ const ArticleCarousel = props => {
       </Carousel.Item>
     )
   })
-  return (
-    <Carousel>
-      {articles}
-    </Carousel>
+
+  return(
+    <div>
+      <Carousel>
+        {articles}
+      </Carousel>
+    </div>
   );
 };
 

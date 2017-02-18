@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid, Row, Col, Thumbnail } from 'react-bootstrap';
+import { Thumbnail } from 'react-bootstrap';
 
 const ArticleThumbnails = props => {
+
   let articles = props.articleArray.map(article => {
     return (
       <Thumbnail>
@@ -12,11 +13,12 @@ const ArticleThumbnails = props => {
       </Thumbnail>
     )
   })
-  return (
+
+  return(
     <div>
       {articles}
     </div>
-  )
-}
+  );
+};
 
 export default ArticleThumbnails;
