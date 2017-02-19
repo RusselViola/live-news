@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :articles, only: [:index, :create]
-    resources :sources, only: [:index]
+    resources :sources, only: [:index, :create]
   end
 
 end

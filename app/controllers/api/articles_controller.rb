@@ -1,25 +1,24 @@
 class Api::ArticlesController < ApiController
-  #business, entertainment, gaming, general, music, science and nature, sports, tech
-
-  def index
-    @sources = Source.all
-    respond_to do |format|
-      format.json do
-        render json: @sources
-      end
-    end
-  end
 
   def create
-    @source = params[:sourceTitle]
-    @key = ENV['NEWS_API_KEY']
-    @url = "https://newsapi.org/v1/articles?source=" + @source + "&apiKey=" + "#{@key}"
-    @articles = HTTParty.get(@url)['articles']
+    @article = Article.create(article_params)
+    @articles = Article.all
+    if @articles.length > 30
+      Article.first.destroy
+      @articles = Article.all
+    end
+    @articles = @articles
     respond_to do |format|
       format.json do
         render json: @articles
       end
     end
+  end
+
+  protected
+
+  def article_params
+    params.permit(:author, :title, :description, :url, :urlToImage, :publishedAt)
   end
 
 end

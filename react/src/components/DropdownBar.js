@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonToolbar, ButtonGroup, DropdownButton, MenuItem, Popover, OverlayTrigger } from 'react-bootstrap';
 
 const DropdownBar = props => {
+
   let dropMenus = props.categories.map( category => {
     let menuItems = props.sourceArray.map( s => {
       let popover = (
@@ -18,8 +19,8 @@ const DropdownBar = props => {
         )
       }
     })
-    return (
-      <DropdownButton title={category} id="bg-justified-dropdown">
+    return(
+      <DropdownButton title={category} bsStyle='primary' id="bg-justified-dropdown">
         {menuItems}
       </DropdownButton>
     )

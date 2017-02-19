@@ -4,6 +4,7 @@ import ArticleThumbnails from './ArticleThumbnails';
 import NavBar from './NavBar';
 import { Tab, Tabs, Grid } from 'react-bootstrap';
 import Iframe from 'react-iframe';
+import PinnedArticles from './PinnedArticles'
 
 export default class PageView extends Component {
 
@@ -19,7 +20,7 @@ export default class PageView extends Component {
           categories={this.props.categories}
           sourceArray={this.props.sourceArray}
           handleClick={this.props.handleClick}
-          currentSourceUrl={this.props.currentSource.logoUrl}
+          currentSourceLogoUrl={this.props.currentSource.logoUrl}
         />
         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
           <Tab eventKey={1} title="Carousel">
@@ -34,6 +35,15 @@ export default class PageView extends Component {
             <Grid>
               <ArticleThumbnails
                 articleArray={this.props.articleArray}
+                currentSourceLogoUrl={this.props.currentSource.logoUrl}
+                handlePin={this.props.handlePin}
+              />
+            </Grid>
+          </Tab>
+          <Tab eventKey={3} title="Trending Articles">
+            <Grid>
+              <PinnedArticles
+                pinnedArticles={this.props.pinnedArticles}
                 currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
