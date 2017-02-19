@@ -9,7 +9,7 @@ const NavBar = props => {
     <div>
       <PageHeader>
         <center>API-live: News Feed</center><br />
-        <center><img src={props.currentSourceUrl}/></center><br />
+        <center><img src={props.currentSourceLogoUrl}/></center><br />
         <DropdownBar
           categories={props.categories}
           sourceArray={props.sourceArray}
