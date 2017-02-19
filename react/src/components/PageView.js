@@ -26,7 +26,7 @@ export default class PageView extends Component {
             <Grid>
               <ArticleCarousel
                 articleArray={this.props.articleArray}
-                currentSourceUrl={this.props.currentSource.logoUrl}
+                currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
           </Tab>
@@ -34,6 +34,7 @@ export default class PageView extends Component {
             <Grid>
               <ArticleThumbnails
                 articleArray={this.props.articleArray}
+                currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
           </Tab>
